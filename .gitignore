@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
 # Production builds
 /build
@@ -15,7 +16,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# Backend data
+# Backend data (IMPORTANT: Don't commit user data)
 backend/data.json
 
 # IDE
@@ -24,38 +25,13 @@ backend/data.json
 *.swp
 *.swo
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-logs
-*.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-
 # Temporary folders
 tmp/
 temp/
 
-# Optional npm cache directory
+# Cache directories
 .npm
-
-# Optional eslint cache
 .eslintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
 
 # Optional REPL history
 .node_repl_history
@@ -65,4 +41,3 @@ temp/
 
 # Yarn Integrity file
 .yarn-integrity
-node_modules

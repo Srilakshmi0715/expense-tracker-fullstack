@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income & Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Income & Expense Tracker</h1>
+        </header>
+
+        <!-- Balance Display -->
+        <section class="balance-section">
+            <h2>Your Balance</h2>
+            <div class="balance" id="balance">$0.00</div>
+        </section>
+
+        <!-- Income & Expense Summary -->
+        <section class="summary-section">
+            <div class="income-box">
+                <h3>Income</h3>
+                <div class="income" id="income">+$0.00</div>
+            </div>
+            <div class="expense-box">
+                <h3>Expenses</h3>
+                <div class="expense" id="expense">-$0.00</div>
+            </div>
+        </section>
+
+        <!-- Transaction List -->
+        <section class="transactions-section">
+            <div class="section-header">
+                <h3>Transaction History</h3>
+                <div class="controls">
+                    <input type="text" id="search" placeholder="Search transactions...">
+                    <select id="filter-category">
+                        <option value="all">All Categories</option>
+                        <option value="food">Food</option>
+                        <option value="transport">Transport</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="bills">Bills</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="salary">Salary</option>
+                        <option value="business">Business</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="filter-type">
+                        <option value="all">All Types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+            </div>
+            <ul class="transaction-list" id="transaction-list">
+                <!-- Transactions will be added here dynamically -->
+            </ul>
+        </section>
+
+        <!-- Input Form -->
+        <section class="add-transaction-section">
+            <h3>Add New Transaction</h3>
+            <form id="transaction-form">
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="Enter description..." required>
+                </div>
+                <div class="form-control">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount..." step="0.01" required>
+                </div>
+                <div class="form-control">
+                    <label for="type">Type</label>
+                    <select id="type" required>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="food">Food</option>
+                        <option value="transport">Transport</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="bills">Bills</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="salary">Salary</option>
+                        <option value="business">Business</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Add Transaction</button>
+            </form>
+        </section>
+
+        <!-- Reports Section -->
+        <section class="reports-section">
+            <h3>Reports & Analytics</h3>
+            <div class="report-controls">
+                <select id="report-period">
+                    <option value="month">This Month</option>
+                    <option value="year">This Year</option>
+                    <option value="all">All Time</option>
+                </select>
+                <button class="btn-secondary" id="export-csv">Export CSV</button>
+                <button class="btn-secondary" id="export-json">Export JSON</button>
+            </div>
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h4>Expenses by Category</h4>
+                    <canvas id="category-chart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h4>Income vs Expenses</h4>
+                    <canvas id="income-expense-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Budget Section -->
+        <section class="budget-section">
+            <h3>Budget Tracking</h3>
+            <div class="budget-form">
+                <div class="form-control">
+                    <label for="budget-category">Category</label>
+                    <select id="budget-category">
+                        <option value="food">Food</option>
+                        <option value="transport">Transport</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="bills">Bills</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="budget-amount">Monthly Budget</label>
+                    <input type="number" id="budget-amount" placeholder="Enter budget amount..." step="0.01">
+                </div>
+                <button class="btn-secondary" id="set-budget">Set Budget</button>
+            </div>
+            <div class="budget-progress" id="budget-progress">
+                <!-- Budget progress will be displayed here -->
+            </div>
+        </section>
+
+        <!-- Settings -->
+        <section class="settings-section">
+            <h3>Settings</h3>
+            <div class="settings-controls">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Dark Mode</span>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
